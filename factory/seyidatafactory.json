@@ -1,0 +1,9 @@
+{
+	"name": "seyidatafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "19456870-51e2-420f-9745-d2ecd59fbe31",
+		"tenantId": "2b807a22-351e-4356-80e7-422eee60f84d"
+	}
+}
