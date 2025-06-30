@@ -1,0 +1,16 @@
+{
+	"name": "Ds_copytodedicated",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_dedicated",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Newsuppliers"
+		}
+	}
+}
