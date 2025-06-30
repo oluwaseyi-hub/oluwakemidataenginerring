@@ -1,12 +1,12 @@
 {
-	"name": "Ds_copytodedicated",
+	"name": "Ds_copyfromsql",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Ls_dedicated",
+			"referenceName": "Ls_sqldatabase",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "AzureSqlDWTable",
+		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
 			"schema": "SalesLT",
