@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_efp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_fornewADLSstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "staging"
+			}
+		}
+	}
+}
