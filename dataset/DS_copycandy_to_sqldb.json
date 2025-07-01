@@ -1,0 +1,16 @@
+{
+	"name": "DS_copycandy_to_sqldb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqldatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Sales_LOAD"
+		}
+	}
+}

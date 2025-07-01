@@ -1,10 +1,6 @@
 {
 	"name": "Ds_copytosqldb",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "Ls_sqldatabase",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
