@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copydatasettostaging",
+				"name": "Copy_data_to_staging",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -38,13 +38,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Ds_forbinary",
+						"referenceName": "Ds_from_zipBinary",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Ds_forstaging",
+						"referenceName": "Ds_to_unzipBinary",
 						"type": "DatasetReference"
 					}
 				]
