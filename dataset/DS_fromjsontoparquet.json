@@ -1,0 +1,20 @@
+{
+	"name": "DS_fromjsontoparquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_fornewADLSstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "handycandy.parquet",
+				"fileSystem": "silver"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
