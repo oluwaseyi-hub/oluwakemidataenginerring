@@ -32,12 +32,6 @@
 						}
 					}
 				},
-				"inputs": [
-					{
-						"referenceName": "Ds_copyfromsql",
-						"type": "DatasetReference"
-					}
-				],
 				"outputs": [
 					{
 						"referenceName": "Ds_copytodedicated",

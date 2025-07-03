@@ -1,0 +1,20 @@
+{
+	"name": "DS_json_sugarcubefile",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_fornewADLSstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "April.json",
+				"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/SugarCube/2020/Q2",
+				"fileSystem": "staging"
+			}
+		},
+		"schema": {}
+	}
+}
