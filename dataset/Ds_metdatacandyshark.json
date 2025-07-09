@@ -1,0 +1,23 @@
+{
+	"name": "Ds_metdatacandyshark",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_fornewADLSstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/CandyShack",
+				"fileSystem": "staging"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
