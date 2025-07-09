@@ -1,0 +1,23 @@
+{
+	"name": "DS_copy_to_sqlforeach",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqldatabase",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"table": {
+				"value": "@dataset().Tablename",
+				"type": "Expression"
+			}
+		}
+	}
+}
