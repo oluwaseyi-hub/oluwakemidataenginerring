@@ -1,0 +1,23 @@
+{
+	"name": "DS_sql_table_foreach_parameter",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqldatabase",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
+		}
+	}
+}

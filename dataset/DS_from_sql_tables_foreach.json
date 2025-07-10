@@ -1,0 +1,12 @@
+{
+	"name": "DS_from_sql_tables_foreach",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqldatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
