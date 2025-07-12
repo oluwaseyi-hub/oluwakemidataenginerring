@@ -11,10 +11,34 @@
 					},
 					"name": "jollyGoodexceldata",
 					"description": "jollyGood for exchage rate"
+				},
+				{
+					"linkedService": {
+						"referenceName": "LS_fornewADLSstorage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "ExchangeRatejollygood"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "FilterOutMonthTotal"
+				},
+				{
+					"name": "filterCurrencyToUSD"
+				},
+				{
+					"name": "LookupExchangeRate"
+				},
+				{
+					"name": "derivedColumnforTotalSales"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Period as date,",
@@ -25,7 +49,34 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> jollyGoodexceldata"
+				"     ignoreNoFilesFound: false) ~> jollyGoodexceldata",
+				"source(output(",
+				"          FromCurrency as string,",
+				"          ToCurrency as string,",
+				"          Date as date,",
+				"          ExchangeRate as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'excel',",
+				"     fileSystem: 'staging',",
+				"     folderPath: 'Azure-Data-Factory-by-Example-Second-Edition-main/SampleData',",
+				"     fileName: 'ExchangeRates.xlsx',",
+				"     sheetName: 'Sheet1',",
+				"     firstRowAsHeader: true) ~> ExchangeRatejollygood",
+				"jollyGoodexceldata filter(Product!='Month Total') ~> FilterOutMonthTotal",
+				"ExchangeRatejollygood filter(ToCurrency=='USD') ~> filterCurrencyToUSD",
+				"FilterOutMonthTotal, filterCurrencyToUSD lookup(Period == Date",
+				"     && Currency == FromCurrency,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> LookupExchangeRate",
+				"LookupExchangeRate derive(SalesValueUSD = round({Unit Price}*{Units Sold}*ExchangeRate,2)) ~> derivedColumnforTotalSales",
+				"derivedColumnforTotalSales sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
