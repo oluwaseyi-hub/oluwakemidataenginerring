@@ -24,7 +24,8 @@
 					"dataset": {
 						"referenceName": "DS_from_sql_tables_foreach",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -41,7 +42,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup_Sql_tables').output",
+						"value": "@activity('Lookup_Sql_tables').output.value",
 						"type": "Expression"
 					},
 					"activities": [
@@ -90,7 +91,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"table_name": {
-											"value": "@item().name",
+											"value": "@item().table_name",
 											"type": "Expression"
 										}
 									}
@@ -102,7 +103,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
-											"value": "@item().name",
+											"value": "@item().table_name",
 											"type": "Expression"
 										}
 									}
