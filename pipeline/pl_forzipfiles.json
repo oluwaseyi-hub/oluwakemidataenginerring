@@ -38,7 +38,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Ds_from_zipBinary",
+						"referenceName": "SourceDataset_efp",
 						"type": "DatasetReference"
 					}
 				],
