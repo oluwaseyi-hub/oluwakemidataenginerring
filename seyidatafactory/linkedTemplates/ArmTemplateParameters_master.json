@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "seyidatafactory"
+		},
+		"LS_fornewADLSstorage_accountKey": {
+			"value": ""
+		},
+		"LS_sqldatabase_password": {
+			"value": ""
+		},
+		"ls_adlsstcopy_accountKey": {
+			"value": ""
+		},
+		"ls_blobstcopy_connectionString": {
+			"value": ""
+		},
+		"LS_fornewADLSstorage_properties_typeProperties_url": {
+			"value": "https://adlsforproject02.dfs.core.windows.net/"
+		},
+		"LS_sqldatabase_properties_typeProperties_server": {
+			"value": "sqlserverforproject.database.windows.net"
+		},
+		"LS_sqldatabase_properties_typeProperties_database": {
+			"value": "DB_forkemproject"
+		},
+		"LS_sqldatabase_properties_typeProperties_userName": {
+			"value": "oluwaseyiadmin"
+		},
+		"ls_adlsstcopy_properties_typeProperties_url": {
+			"value": "https://adlsforproject.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
