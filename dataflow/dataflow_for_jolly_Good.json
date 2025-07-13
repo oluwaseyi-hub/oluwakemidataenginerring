@@ -22,7 +22,11 @@
 			],
 			"sinks": [
 				{
-					"name": "sink1"
+					"dataset": {
+						"referenceName": "DS_Sql_Excel_date",
+						"type": "DatasetReference"
+					},
+					"name": "sinkSqlExceldata"
 				}
 			],
 			"transformations": [
@@ -37,6 +41,9 @@
 				},
 				{
 					"name": "derivedColumnforTotalSales"
+				},
+				{
+					"name": "SelectTargetColumns"
 				}
 			],
 			"scriptLines": [
@@ -73,10 +80,39 @@
 				"     pickup: 'any',",
 				"     broadcast: 'auto')~> LookupExchangeRate",
 				"LookupExchangeRate derive(SalesValueUSD = round({Unit Price}*{Units Sold}*ExchangeRate,2)) ~> derivedColumnforTotalSales",
-				"derivedColumnforTotalSales sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
+				"derivedColumnforTotalSales select(mapColumn(",
+				"          Product,",
+				"          {Unit Price},",
+				"          {Units Sold},",
+				"          Date,",
+				"          SalesValueUSD",
+				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> SelectTargetColumns",
+				"SelectTargetColumns sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Product as string,",
+				"          {Unit Price} as integer,",
+				"          UnitsSold as integer,",
+				"          Date as date,",
+				"          SalesValueUSD as decimal(18,2)",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Product,",
+				"          {Unit Price},",
+				"          UnitsSold = {Units Sold},",
+				"          Date,",
+				"          SalesValueUSD",
+				"     )) ~> sinkSqlExceldata"
 			]
 		}
 	}

@@ -1,0 +1,41 @@
+{
+	"name": "DS_Sql_Excel_date",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqldatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Unit Price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "UnitsSold",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Date",
+				"type": "date"
+			},
+			{
+				"name": "SalesValueUSD",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Sales_LOAD2"
+		}
+	}
+}
