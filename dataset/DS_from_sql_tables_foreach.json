@@ -5,6 +5,9 @@
 			"referenceName": "LS_sqldatabase",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "for each"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": []
