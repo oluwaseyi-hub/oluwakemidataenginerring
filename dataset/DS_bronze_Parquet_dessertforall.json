@@ -1,0 +1,20 @@
+{
+	"name": "DS_bronze_Parquet_dessertforall",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLSproject3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "bronze.parquet",
+				"fileSystem": "bronze"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
