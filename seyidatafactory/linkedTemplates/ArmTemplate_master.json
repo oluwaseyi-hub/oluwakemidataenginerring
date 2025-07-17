@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "seyidatafactory"
 		},
+		"LS_ADLSproject3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLSproject3'"
+		},
 		"LS_fornewADLSstorage_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_fornewADLSstorage'"
@@ -22,6 +26,10 @@
 		"ls_blobstcopy_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_blobstcopy'"
+		},
+		"LS_ADLSproject3_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsforproject3.dfs.core.windows.net/"
 		},
 		"LS_fornewADLSstorage_properties_typeProperties_url": {
 			"type": "string",
@@ -70,6 +78,9 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"LS_ADLSproject3_accountKey": {
+						"value": "[parameters('LS_ADLSproject3_accountKey')]"
+					},
 					"LS_fornewADLSstorage_accountKey": {
 						"value": "[parameters('LS_fornewADLSstorage_accountKey')]"
 					},
@@ -81,6 +92,9 @@
 					},
 					"ls_blobstcopy_connectionString": {
 						"value": "[parameters('ls_blobstcopy_connectionString')]"
+					},
+					"LS_ADLSproject3_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLSproject3_properties_typeProperties_url')]"
 					},
 					"LS_fornewADLSstorage_properties_typeProperties_url": {
 						"value": "[parameters('LS_fornewADLSstorage_properties_typeProperties_url')]"

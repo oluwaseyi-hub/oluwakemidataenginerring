@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "seyidatafactory"
 		},
+		"LS_ADLSproject3_accountKey": {
+			"value": ""
+		},
 		"LS_fornewADLSstorage_accountKey": {
 			"value": ""
 		},
@@ -16,6 +19,9 @@
 		},
 		"ls_blobstcopy_connectionString": {
 			"value": ""
+		},
+		"LS_ADLSproject3_properties_typeProperties_url": {
+			"value": "https://adlsforproject3.dfs.core.windows.net/"
 		},
 		"LS_fornewADLSstorage_properties_typeProperties_url": {
 			"value": "https://adlsforproject02.dfs.core.windows.net/"
