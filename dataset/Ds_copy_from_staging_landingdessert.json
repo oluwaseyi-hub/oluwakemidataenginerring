@@ -1,8 +1,8 @@
 {
-	"name": "Ds_landing_dessertforall",
+	"name": "Ds_copy_from_staging_landingdessert",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_ADLSproject3",
+			"referenceName": "LS_fornewADLSstorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "bronze.dessert",
-				"fileSystem": "landing"
+				"fileName": "04-20.csv",
+				"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/Desserts4All",
+				"fileSystem": "staging"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

@@ -113,7 +113,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Ds_staging_dessertforall",
+						"referenceName": "Ds_copy_from_staging_landingdessert",
 						"type": "DatasetReference"
 					}
 				],
