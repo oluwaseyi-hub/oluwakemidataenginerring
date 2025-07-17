@@ -178,6 +178,9 @@
 						"type": "string"
 					}
 				},
+				"folder": {
+					"name": "for each"
+				},
 				"annotations": [],
 				"type": "AzureSqlTable",
 				"schema": [],
@@ -296,6 +299,9 @@
 					"referenceName": "LS_sqldatabase",
 					"type": "LinkedServiceReference"
 				},
+				"folder": {
+					"name": "for each"
+				},
 				"annotations": [],
 				"type": "AzureSqlTable",
 				"schema": [],
@@ -368,6 +374,9 @@
 					"table_name": {
 						"type": "string"
 					}
+				},
+				"folder": {
+					"name": "for each"
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -474,6 +483,9 @@
 						"type": "string"
 					}
 				},
+				"folder": {
+					"name": "for each"
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -510,6 +522,9 @@
 					"filename": {
 						"type": "string"
 					}
+				},
+				"folder": {
+					"name": "for each"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
