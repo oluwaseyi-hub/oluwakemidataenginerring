@@ -160,6 +160,13 @@
 						"referenceName": "dataflow_for_dessert_for_all",
 						"type": "DataFlowReference"
 					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "LS_ADLSproject3",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "gold"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"

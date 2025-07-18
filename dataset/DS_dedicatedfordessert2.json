@@ -1,0 +1,26 @@
+{
+	"name": "DS_dedicatedfordessert2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Dedicatedforproject",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "Revenue",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "product",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SalesGold"
+		}
+	}
+}

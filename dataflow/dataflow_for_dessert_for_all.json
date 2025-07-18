@@ -26,6 +26,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "OutforDessertforall"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_dedicatedfordessert2",
+						"type": "DatasetReference"
+					},
+					"name": "GoldDessert"
 				}
 			],
 			"transformations": [
@@ -61,7 +68,8 @@
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> Silverdessertforall",
 				"dessertforalldata derive(Revenue = SalesValueUSD*UnitsSold) ~> derivedColumnforRevenue",
-				"Silverdessertforall aggregate(column1 = ERROR_FUNCTION('')) ~> aggregateDessert",
+				"Silverdessertforall aggregate(groupBy(Product),",
+				"     totalrevenue = sum(Revenue)) ~> aggregateDessert",
 				"derivedColumnforRevenue sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
@@ -69,7 +77,27 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> OutforDessertforall"
+				"     skipDuplicateMapOutputs: true) ~> OutforDessertforall",
+				"aggregateDessert sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Revenue as integer,",
+				"          product as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Revenue = totalrevenue,",
+				"          product = Product",
+				"     )) ~> GoldDessert"
 			]
 		}
 	}
