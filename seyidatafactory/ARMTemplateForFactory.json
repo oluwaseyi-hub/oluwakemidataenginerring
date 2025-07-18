@@ -2070,7 +2070,7 @@
 			"properties": {
 				"description": "trigger_for_dessert_for_all",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
