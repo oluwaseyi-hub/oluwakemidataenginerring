@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_ADLSproject3'"
 		},
+		"LS_Dedicatedforproject_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Dedicatedforproject'"
+		},
 		"LS_fornewADLSstorage_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_fornewADLSstorage'"
@@ -85,6 +89,9 @@
 					"LS_ADLSproject3_accountKey": {
 						"value": "[parameters('LS_ADLSproject3_accountKey')]"
 					},
+					"LS_Dedicatedforproject_connectionString": {
+						"value": "[parameters('LS_Dedicatedforproject_connectionString')]"
+					},
 					"LS_fornewADLSstorage_accountKey": {
 						"value": "[parameters('LS_fornewADLSstorage_accountKey')]"
 					},
@@ -132,6 +139,26 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'seyidatafactory_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "seyidatafactory_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"TR_dessertforall_properties_typeProperties_scope": {
 						"value": "[parameters('TR_dessertforall_properties_typeProperties_scope')]"
@@ -139,7 +166,7 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'seyidatafactory_ArmTemplate_0')]"
+				"[resourceId('Microsoft.Resources/deployments', 'seyidatafactory_ArmTemplate_1')]"
 			]
 		}
 	]
