@@ -1,0 +1,53 @@
+{
+	"name": "dataflow_for_dessert_for_all",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_copy_from_bronzeParquetDF",
+						"type": "DatasetReference"
+					},
+					"name": "dessertforalldata"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Ds_Bronze_to_Silver_Parquet1",
+						"type": "DatasetReference"
+					},
+					"name": "OutforDessertforall"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumnforRevenue"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          SalesMonth as string,",
+				"          Retailer as string,",
+				"          Product as string,",
+				"          SalesValueUSD as integer,",
+				"          UnitsSold as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> dessertforalldata",
+				"dessertforalldata derive(Revenue = SalesValueUSD*UnitsSold) ~> derivedColumnforRevenue",
+				"derivedColumnforRevenue sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> OutforDessertforall"
+			]
+		}
+	}
+}
