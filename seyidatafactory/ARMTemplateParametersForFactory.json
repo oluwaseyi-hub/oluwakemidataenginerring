@@ -37,6 +37,9 @@
 		},
 		"ls_adlsstcopy_properties_typeProperties_url": {
 			"value": "https://adlsforproject.dfs.core.windows.net/"
+		},
+		"TR_dessertforall_properties_typeProperties_scope": {
+			"value": "/subscriptions/81141c92-9125-49b0-87a3-ab9093ff889b/resourceGroups/RG-oluwaseyi/providers/Microsoft.Storage/storageAccounts/adlsforproject3"
 		}
 	}
 }

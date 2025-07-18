@@ -190,6 +190,31 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Ds_bronze_Parquet_dessertforall')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_ADLSproject3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "parquetbronze",
+						"fileSystem": "bronze"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_ADLSproject3')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_copy_to_sqlforeach')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -535,46 +560,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Ds_copy_to_sql_foreach')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_fornewADLSstorage",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"filename": {
-						"type": "string"
-					}
-				},
-				"folder": {
-					"name": "for each"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().filename",
-							"type": "Expression"
-						},
-						"fileSystem": "sqlsalesltfiles"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_fornewADLSstorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Ds_from_candyshack')]",
+			"name": "[concat(parameters('factoryName'), '/Ds_copy_from_landing_to_bronze_dessertforall')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -587,8 +573,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "2020-04.csv",
-						"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/CandyShack",
+						"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/Desserts4All",
 						"fileSystem": "staging"
 					},
 					"columnDelimiter": ",",
@@ -603,7 +588,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Ds_metdatacandyshark')]",
+			"name": "[concat(parameters('factoryName'), '/Ds_copy_from_staging_landingdessert')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -616,7 +601,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/CandyShack",
+						"fileName": "04-20.csv",
+						"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/Desserts4All",
 						"fileSystem": "staging"
 					},
 					"columnDelimiter": ",",
