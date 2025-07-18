@@ -1,0 +1,18 @@
+{
+	"name": "TR_dessertforall",
+	"properties": {
+		"description": "trigger_for_dessert_for_all",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/bronze/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/81141c92-9125-49b0-87a3-ab9093ff889b/resourceGroups/RG-oluwaseyi/providers/Microsoft.Storage/storageAccounts/adlsforproject3",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
