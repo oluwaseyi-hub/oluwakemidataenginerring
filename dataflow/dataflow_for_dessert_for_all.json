@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "dessertforalldata"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_froms_silver_Parquet1",
+						"type": "DatasetReference"
+					},
+					"name": "Silverdessertforall"
 				}
 			],
 			"sinks": [
@@ -24,6 +31,9 @@
 			"transformations": [
 				{
 					"name": "derivedColumnforRevenue"
+				},
+				{
+					"name": "aggregateDessert"
 				}
 			],
 			"scriptLines": [
@@ -38,7 +48,20 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> dessertforalldata",
+				"source(output(",
+				"          SalesMonth as string,",
+				"          Retailer as string,",
+				"          Product as string,",
+				"          SalesValueUSD as integer,",
+				"          UnitsSold as integer,",
+				"          Revenue as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> Silverdessertforall",
 				"dessertforalldata derive(Revenue = SalesValueUSD*UnitsSold) ~> derivedColumnforRevenue",
+				"Silverdessertforall aggregate(column1 = ERROR_FUNCTION('')) ~> aggregateDessert",
 				"derivedColumnforRevenue sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
