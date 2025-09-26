@@ -1,0 +1,21 @@
+{
+	"name": "DS_retail_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureDataLakeStorage_new",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "retaildata.parquet",
+				"folderPath": "Bronze",
+				"fileSystem": "retail-preformance"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
