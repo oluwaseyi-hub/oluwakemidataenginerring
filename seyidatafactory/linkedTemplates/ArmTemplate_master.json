@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_blobstcopy'"
 		},
+		"LS_AzureDataLakeStorage_new_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_AzureDataLakeStorage_new'"
+		},
 		"LS_ADLSproject3_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsforproject3.dfs.core.windows.net/"
@@ -58,6 +62,14 @@
 		"TR_dessertforall_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/81141c92-9125-49b0-87a3-ab9093ff889b/resourceGroups/RG-oluwaseyi/providers/Microsoft.Storage/storageAccounts/adlsforproject3"
+		},
+		"Git_retail_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"LS_AzureDataLakeStorage_new_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsfordatabrickprojects.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -104,6 +116,9 @@
 					"ls_blobstcopy_connectionString": {
 						"value": "[parameters('ls_blobstcopy_connectionString')]"
 					},
+					"LS_AzureDataLakeStorage_new_accountKey": {
+						"value": "[parameters('LS_AzureDataLakeStorage_new_accountKey')]"
+					},
 					"LS_ADLSproject3_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLSproject3_properties_typeProperties_url')]"
 					},
@@ -121,6 +136,12 @@
 					},
 					"ls_adlsstcopy_properties_typeProperties_url": {
 						"value": "[parameters('ls_adlsstcopy_properties_typeProperties_url')]"
+					},
+					"Git_retail_LS_properties_typeProperties_url": {
+						"value": "[parameters('Git_retail_LS_properties_typeProperties_url')]"
+					},
+					"LS_AzureDataLakeStorage_new_properties_typeProperties_url": {
+						"value": "[parameters('LS_AzureDataLakeStorage_new_properties_typeProperties_url')]"
 					}
 				}
 			},
