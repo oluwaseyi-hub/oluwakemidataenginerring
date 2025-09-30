@@ -9,7 +9,10 @@
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation"
+				"type": "AzureBlobFSLocation",
+				"fileName": "customer_analytics.parquet",
+				"folderPath": "bronze",
+				"fileSystem": "store-analytisc-data"
 			},
 			"compressionCodec": "snappy"
 		},
