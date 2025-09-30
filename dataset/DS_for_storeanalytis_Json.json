@@ -1,0 +1,18 @@
+{
+	"name": "DS_for_storeanalytis_Json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Git_retail_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "sqlguru007/Azure-Data-Engineering/refs/heads/main/datasets/rawdatafromapi.json"
+			}
+		},
+		"schema": {}
+	}
+}
