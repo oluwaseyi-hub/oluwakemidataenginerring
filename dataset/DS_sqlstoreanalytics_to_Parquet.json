@@ -1,0 +1,21 @@
+{
+	"name": "DS_sqlstoreanalytics_to_Parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_for_Databricks",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "store.parquet",
+				"folderPath": "bronze",
+				"fileSystem": "store-analytisc-data"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
