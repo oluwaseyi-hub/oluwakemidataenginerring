@@ -1,0 +1,21 @@
+{
+	"name": "DS_sqltransstore_to_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_for_Databricks",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "transaction.parquet",
+				"folderPath": "bronze",
+				"fileSystem": "store-analytisc-data"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
